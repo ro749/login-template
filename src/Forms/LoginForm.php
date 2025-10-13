@@ -2,12 +2,10 @@
 
 namespace Ro749\LoginTemplate\Forms;
 
-use Ro7409\SharedUtils\Forms\LoginForm as LoginFormBase;
+use Ro749\SharedUtils\Forms\LoginForm as LoginFormBase;
 use Ro749\SharedUtils\Forms\FormField;
 use Ro749\SharedUtils\Forms\InputType;
 
-use Ro749\LoginTemplate\Models\User;
-use Ro749\LoginTemplate\Models\Client;
 
 class LoginForm extends LoginFormBase
 {
@@ -15,11 +13,12 @@ class LoginForm extends LoginFormBase
     {
         parent::__construct(
             table: config('overrides.login.table'),
+            guard: config('overrides.login.guard'),
             submit_text: "Entrar",
             column_status: "status",
             redirect : config('overrides.login.redirect'),
             fields: [
-                "user" => new FormField(
+                "name" => new FormField(
                     type: InputType::TEXT,
                     placeholder:"Usuario", 
                     icon: "bx bx-user"

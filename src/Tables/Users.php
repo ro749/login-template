@@ -19,14 +19,8 @@ class Users extends BaseTable
                     'name'=>new Column(
                         display:"Nombre",
                     ),
-                    'mail'=>new Column(
+                    'email'=>new Column(
                         display:"Email",
-                    ),
-                    'phone'=>new Column(
-                        display:"Teléfono",
-                    ),
-                    'username'=>new Column(
-                        display:"Nombre de usuario",
                     ),
                     'status'=>new Column(
                         display:"Status",
