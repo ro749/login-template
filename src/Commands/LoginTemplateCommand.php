@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Ro749\LoginTemplate\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LoginTemplateCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'login-template';
 
     public $description = 'My command';
 
