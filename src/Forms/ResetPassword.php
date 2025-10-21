@@ -12,10 +12,10 @@ class ResetPassword extends BaseForm
     public function __construct()
     {
         parent::__construct(
-            table: config('overrides.login.table'),
+            model_class: config('login.model'),
             submit_text: 'Confirmar',
-            db_id: Auth::guard(config('overrides.login.guard'))->user()->id,
-            redirect : config('overrides.login.redirect'),
+            db_id: Auth::guard(config('login.guard'))->user()->id,
+            redirect : config('login.redirect'),
             fields: [
                 "password" => new FormField(
                     placeholder:"Nueva contraseña",

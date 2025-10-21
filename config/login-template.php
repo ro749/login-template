@@ -9,13 +9,6 @@ return [
         ]
     ],
     'overrides'=>[
-        'login'=>[
-            'guard'=>'web',
-            'admin_guard'=>'web',
-            'table'=>'users',
-            'default_password'=>'123456',
-            'redirect'=>'/',
-        ],
         'forms'=>[
             'LoginForm'=>\Ro749\LoginTemplate\Forms\LoginForm::class,
             'EditUser'=>\Ro749\LoginTemplate\Forms\EditUser::class,
@@ -28,5 +21,12 @@ return [
         'controllers'=>[
             'LoginController'=>\Ro749\LoginTemplate\Controllers\LoginController::class,
         ]
-    ]
+    ],
+    'login'=>[
+        'guard'=>'web',
+        'admin_guard'=>'web',
+        'table'=>'users',
+        'default_password'=>'123456',
+        'redirect'=>'/',
+    ],
 ];

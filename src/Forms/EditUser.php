@@ -14,35 +14,17 @@ class EditUser extends BaseForm
     public function __construct()
     {
         parent::__construct(
-            table: config('overrides.login.table'),
+            model_class: config('login.model'),
             fields: [
+                'id'=>new FormField(
+                    type: InputType::HIDDEN,
+                ),
                 'name'=>new FormField(
                     type: InputType::TEXT,
-                    label: "Nombre",
-                    placeholder: "Escriba el nombre",
+                    label: "Usuario",
+                    placeholder: "Escriba el usuario",
                     rules: ["required"],
                     icon: "f7:person"
-                ),
-                'mail'=>new FormField(
-                    type: InputType::EMAIL,
-                    label:"Email",
-                    placeholder:"Escriba el email",
-                    rules: ["required"],
-                    icon: "mage:email"
-                ),
-                'phone'=>new FormField(
-                    type: InputType::PHONE,
-                    label:"Teléfono",
-                    placeholder:"Escriba el teléfono",
-                    rules: ["unique","required"],
-                    icon: "solar:phone-calling-linear"
-                ),
-                'username'=>new FormField(
-                    type: InputType::TEXT,
-                    label:"Usuario",
-                    placeholder:"Escriba el usuario",
-                    rules: ["unique","required"],
-                    icon: "solar:phone-calling-linear"
                 ),
                 'status'=>new Selector(
                     label:"Status",
@@ -53,11 +35,10 @@ class EditUser extends BaseForm
         );
     }
 
-    public function after_process(int $id){
-        $asesor = DB::table($this->table)->where('id', $id)->first();
-        if($asesor->status == UserStatus::Inactivo->value){
+    public function after_process($model){
+        if($model->status == UserStatus::Inactivo->value){
             DB::table('sessions')
-            ->where('user_id', $id)
+            ->where('user_id', $model->id)
             ->delete();
         }
     }

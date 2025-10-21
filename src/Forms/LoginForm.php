@@ -12,11 +12,10 @@ class LoginForm extends LoginFormBase
     public function __construct()
     {
         parent::__construct(
-            table: config('overrides.login.table'),
-            guard: config('overrides.login.guard'),
+            guard: config('login.guard'),
             submit_text: "Entrar",
             column_status: "status",
-            redirect : config('overrides.login.redirect'),
+            redirect : config('login.redirect'),
             fields: [
                 "name" => new FormField(
                     type: InputType::TEXT,
