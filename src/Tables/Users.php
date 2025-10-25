@@ -1,7 +1,7 @@
 <?php
 
 namespace Ro749\LoginTemplate\Tables;
-use Ro749\SharedUtils\Getters\ArrayGetter;
+use Ro749\SharedUtils\Getters\BaseGetter;
 use Ro749\SharedUtils\Tables\BaseTable;
 use Ro749\SharedUtils\Tables\Column;
 use Ro749\SharedUtils\Models\LogicModifiers\Options;
@@ -13,8 +13,8 @@ class Users extends BaseTable
 {
     public function __construct(){
         parent::__construct(
-            getter: new ArrayGetter(
-                table: config('overrides.login.table'),
+            getter: new BaseGetter(
+                model_class: config('login.model'),
                 columns : [
                     'name'=>new Column(
                         display:"Nombre",

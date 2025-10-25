@@ -19,7 +19,7 @@ class LoginController extends Controller
     }
 
     public function reset_password(){
-        $asesor =  Auth::guard(config('overrides.login.guard'))->user();
+        $asesor =  Auth::guard(config('login.guard'))->user();
         return view('reset-password', [
             'name'=>$asesor->name,
             'form'=>ResetPassword::instanciate(),
@@ -27,9 +27,9 @@ class LoginController extends Controller
     }
 
     public function reset_password_admin(Request $request){
-        DB::table(config('overrides.login.table'))
+        DB::table(config('login.table'))
         ->where('id', $request->input('id'))
-        ->update(values: ['reset' => true,'password' => bcrypt(config('overrides.login.default_password'))]);
+        ->update(values: ['reset' => true,'password' => bcrypt(config('login.default_password'))]);
     }
 
     public function register_user() {

@@ -16,20 +16,14 @@ class EditUser extends BaseForm
         parent::__construct(
             model_class: config('login.model'),
             fields: [
-                'id'=>new FormField(
-                    type: InputType::HIDDEN,
-                ),
                 'name'=>new FormField(
                     type: InputType::TEXT,
                     label: "Usuario",
                     placeholder: "Escriba el usuario",
-                    rules: ["required"],
-                    icon: "f7:person"
                 ),
                 'status'=>new Selector(
                     label:"Status",
                     options: Options::UserStatus,
-                    rules: ["required"],
                 ),
             ]
         );

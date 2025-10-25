@@ -16,7 +16,7 @@ class RegisterUser extends BaseForm
     public function __construct()
     {
         parent::__construct(
-            model_class: config('login.table'),
+            model_class: config('login.model'),
             submit_text: 'Registrar',
             success_msg: 'Usuario registrado exitosamente. La contraseña default es 123456.',
             fields: [
@@ -24,7 +24,7 @@ class RegisterUser extends BaseForm
                     type: InputType::TEXT,
                     label: "Usuario",
                     placeholder: "Escriba el usuario",
-                    rules: ["required"],
+                    required: true,
                     icon: "f7:person"
                 ),
             ]
