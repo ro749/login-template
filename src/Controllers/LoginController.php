@@ -15,12 +15,12 @@ class LoginController extends Controller
 {
     public function index() {
         $form = LoginForm::instanciate();
-        return view('simple-login', ['form'=>$form]);
+        return view(config('overrides.views.simple-login'), ['form'=>$form]);
     }
 
     public function reset_password(){
         $asesor =  Auth::guard(config('login.guard'))->user();
-        return view('reset-password', [
+        return view(config('overrides.views.reset-password'), [
             'name'=>$asesor->name,
             'form'=>ResetPassword::instanciate(),
         ]);
@@ -34,11 +34,11 @@ class LoginController extends Controller
 
     public function register_user() {
         $form = RegisterUser::instanciate();
-        return view('register-asesor', ['form'=>$form]);
+        return view(config('overrides.views.register-asesor'), ['form'=>$form]);
     }
 
     public function users() {
         $table = Users::instance();
-        return view('simple-table', ['table'=>$table]);
+        return view(config('overrides.views.simple-table'), ['table'=>$table]);
     }
 }
