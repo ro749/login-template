@@ -3,7 +3,7 @@
 namespace Ro749\LoginTemplate\Forms;
 
 use Ro749\SharedUtils\Forms\BaseForm;
-use Ro749\SharedUtils\Forms\FormField;
+use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 use Ro749\SharedUtils\Forms\Selector;
 use Ro749\SharedUtils\Enums\Icon;
@@ -20,7 +20,7 @@ class RegisterUser extends BaseForm
             submit_text: 'Registrar',
             success_msg: 'Usuario registrado exitosamente. La contraseña default es 123456.',
             fields: [
-                'name'=>new FormField(
+                'name'=>new Field(
                     type: InputType::TEXT,
                     label: "Usuario",
                     placeholder: "Escriba el usuario",

@@ -3,7 +3,7 @@
 namespace Ro749\LoginTemplate\Forms;
 
 use Ro749\SharedUtils\Forms\BaseForm;
-use Ro749\SharedUtils\Forms\FormField;
+use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 use Ro749\SharedUtils\Forms\Selector;
 use Ro749\LoginTemplate\Enums\Options;
@@ -16,7 +16,7 @@ class EditUser extends BaseForm
         parent::__construct(
             model_class: config('login.model'),
             fields: [
-                'name'=>new FormField(
+                'name'=>new Field(
                     type: InputType::TEXT,
                     label: "Usuario",
                     placeholder: "Escriba el usuario",

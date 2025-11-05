@@ -3,7 +3,7 @@
 namespace Ro749\LoginTemplate\Forms;
 
 use Ro749\SharedUtils\Forms\LoginForm as LoginFormBase;
-use Ro749\SharedUtils\Forms\FormField;
+use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 
 
@@ -17,12 +17,12 @@ class LoginForm extends LoginFormBase
             column_status: "status",
             redirect : config('login.redirect'),
             fields: [
-                "name" => new FormField(
+                "name" => new Field(
                     type: InputType::TEXT,
                     placeholder:"Usuario", 
                     icon: "bx bx-user"
                 ),
-                "password" => new FormField(
+                "password" => new Field(
                     placeholder:"Contraseña",
                     type: InputType::PASSWORD,
                     icon: "bx bx-lock-alt"

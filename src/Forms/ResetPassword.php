@@ -3,7 +3,7 @@
 namespace Ro749\LoginTemplate\Forms;
 
 use Ro749\SharedUtils\Forms\BaseForm;
-use Ro749\SharedUtils\Forms\FormField;
+use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
@@ -17,12 +17,12 @@ class ResetPassword extends BaseForm
             db_id: Auth::guard(config('login.guard'))->user()->id,
             redirect : config('login.redirect'),
             fields: [
-                "password" => new FormField(
+                "password" => new Field(
                     placeholder:"Nueva contraseña",
                     type: InputType::PASSWORD,
                     icon: "bx bx-lock-alt",
                 ),
-                "confirm_password" => new FormField(
+                "confirm_password" => new Field(
                     placeholder:"Confirmar contraseña",
                     type: InputType::PASSWORD,
                     icon: "bx bx-lock-alt",
