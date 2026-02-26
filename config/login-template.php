@@ -20,12 +20,16 @@ return [
         ],
         'controllers'=>[
             'LoginController'=>\Ro749\LoginTemplate\Controllers\LoginController::class,
+        ],
+        'views'=>[
+            'simple-login'=>'login-template::simple-login',
         ]
     ],
     'login'=>[
         'guard'=>'web',
         'admin_guard'=>'web',
         'table'=>'users',
+        'model'=>'',
         'default_password'=>'123456',
         'redirect'=>'/',
     ],

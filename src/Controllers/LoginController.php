@@ -11,10 +11,14 @@ use Ro749\LoginTemplate\Forms\ResetPassword;
 use Ro749\LoginTemplate\Forms\RegisterUser;
 use Ro749\LoginTemplate\Tables\Users;
 
+use Illuminate\Support\Facades\Log;
+
 class LoginController extends Controller
 {
     public function index() {
         $form = LoginForm::instanciate();
+        Log::info('testing');
+        Log::info(config('overrides'));
         return view(config('overrides.views.simple-login'), ['form'=>$form]);
     }
 
