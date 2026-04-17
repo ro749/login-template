@@ -14,18 +14,20 @@ class ResetPassword extends BaseForm
         parent::__construct(
             model_class: config('login.model'),
             submit_text: 'Confirmar',
-            db_id: Auth::guard(config('login.guard'))->user()->id,
             redirect : config('login.redirect'),
+            db_id: Auth::guard(config('login.guard'))->user()->id,
             fields: [
                 "password" => new Field(
                     placeholder:"Nueva contraseña",
-                    type: InputType::PASSWORD,
+                    type: InputType::PIN,
                     icon: "bx bx-lock-alt",
+                    max: 4,
                 ),
-                "confirm_password" => new Field(
+                "password_confirmation" => new Field(
                     placeholder:"Confirmar contraseña",
-                    type: InputType::PASSWORD,
+                    type: InputType::PIN,
                     icon: "bx bx-lock-alt",
+                    max: 4,
                 ),
             ]
         );
@@ -33,12 +35,6 @@ class ResetPassword extends BaseForm
 
     public function before_process(array &$data)
     {
-        if($data['password'] !== $data['confirm_password']){
-            throw ValidationException::withMessages([
-                'confirm_password' => ['Las contraseñas no coinciden.'],
-            ]);
-        }
-        unset($data['confirm_password']);
         $data['reset'] = 0;
     }
 }
