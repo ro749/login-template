@@ -17,8 +17,6 @@ class LoginController extends Controller
 {
     public function index() {
         $form = LoginForm::instanciate();
-        Log::info('testing');
-        Log::info(config('overrides'));
         return view(config('overrides.views.simple-login'), ['form'=>$form]);
     }
 

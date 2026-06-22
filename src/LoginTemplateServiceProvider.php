@@ -24,9 +24,9 @@ class LoginTemplateServiceProvider extends PackageServiceProvider
             ->hasRoutes('web');
     }
 
-    public function register()
+    public function boot()
     {
-        parent::register();
+        parent::boot();
         $packageConfig = require __DIR__.'/../config/login-template.php';
         config(['overrides' => $this->mergeConfigs($packageConfig['overrides'], config('overrides', []))]);
         config(['login' => $this->mergeConfigs($packageConfig['login'], config('login', []))]);
